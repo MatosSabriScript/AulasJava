@@ -32,6 +32,7 @@ public class Exemplo5_OperadorIncremental {
 
         num2= ++num1;
         System.out.println("antes num2 = ++num1 depois num2 ="+num2+  "num1 ="  +num1);
+        //
 
 
 
