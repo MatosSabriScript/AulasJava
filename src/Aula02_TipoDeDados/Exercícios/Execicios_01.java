@@ -1,12 +1,10 @@
 package Aula02_TipoDeDados.Exercícios;
 
-import javax.print.DocFlavor;
-
-public class Execicios {
+public class Execicios_01 {
 public static void main (String[] args) {
 
     int idade = 21;
-    double altura = 1.80;
+    float  altura = 1.80f;
     double peso = 75.35;
 
     System.out.println(idade);
