@@ -11,13 +11,21 @@ public class Exemplo3 {
         idade = scanner.nextInt();
 
 
-        if (idade <= 12){
+        if ( idade >0 && idade <= 12) {
             System.out.println("Criança");
-        } else if (idade<=17) {
-            System.out.println("Adolescente");
-            
+        } else if ( idade >12 && idade <= 17) {
+            System.out.println("Adoslecente");
+        } else if ( idade >17 && idade <= 64) {
+            System.out.println("Adulto");
+        } else if ( idade >64 ) {
+            System.out.println("Idoso");
+        } else {
+            System.out.println("Idade invalida");
         }
-
-
+        }
     }
-}
+
+
+
+
+
