@@ -2,14 +2,14 @@ package Aula05_Repeticao;
 
 import java.util.Scanner;
 
-public class Exemplo5 {
+public class Exemplo02 {
 
         public static void main(String[] args) {
             Scanner scanner = new Scanner(System.in);
 
             int idade;
 
-            do{
+            do{     //pelo menos uma vez ele faz
                 System.out.print("Digite sua idade");
                 idade= scanner.nextInt();
                 System.out.println(idade);
