@@ -4,32 +4,36 @@ import java.util.Scanner;
 
 public class Exercicio_04 {
     public static void main(String[] args) {
-        Scanner scanner =new Scanner(System.in);
-        int opcao;
+        Scanner scanner = new Scanner(System.in);
+        double x;
+        double valorTotal;
 
-        System.out.println("Escolha uma opção");
-        System.out.println("\t1- para a opção Eletronico");
-        System.out.println("\t2- para a opção Alimento");
-        System.out.println("\t3- para a opçao Vestuario");
+        System.out.println("Olá seja bem-vindo: Qual foi o valor de vendas realizadas ?");
+        x = scanner.nextDouble();
 
-        opcao= scanner.nextInt();
-
-        switch (opcao){
-            case 1:
-                System.out.println("Você escolheu a opção 1 Eletronico");
-                break;
-            case 2:
-                System.out.println("Você escolheu a opção 2 Alimento");
-                break;
-            case 3:
-                System.out.println("Você escolheu a opção 3 Vestuario");
-                break;
-            default:
-                System.out.println("Nenhum numero selecionado");
+        if (x > 0 && x <1000) {
+            valorTotal = (x * 0.05);
+            System.out.printf("O valor da sua comissão é %f2 " ,valorTotal);
+        } else if (x >= 1000 && x<= 5000) {
+            valorTotal = (x * 0.10);
+            System.out.println("O valor da sua comissão é " + valorTotal);
+        } else if (x > 5000) {
+            valorTotal = (x * 0.15);
+            System.out.println("O valor da sua comissão é " + valorTotal);
+        } else {
+            System.out.println("o valor não corresponde");
         }
         scanner.close();
     }
 }
 
 
+//pesquisar sobre printf para formatar esse números
 
+
+
+           
+       
+
+
+            
