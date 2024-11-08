@@ -11,9 +11,14 @@ public class Exercicio_06 {
 
         notaFinal = scanner.nextDouble();
 
-        if (notaFinal>0 && notaFinal>=6){
-            System.out.println("aprovado");
-        }else
-            System.out.println("reporvado");
+        if ( notaFinal>0 && notaFinal<5) {
+            System.out.println("Reprovada");
+        } else if ( notaFinal>=5 && notaFinal <7) {
+            System.out.println("Recuperação");
+        } else if ( notaFinal>=7 && notaFinal <= 10) {
+            System.out.println("Aprovada");
+        } else {
+            System.out.println("Nota invalida");
+        }
     }
 }

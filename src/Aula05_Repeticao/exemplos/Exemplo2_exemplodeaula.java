@@ -1,4 +1,4 @@
-package Aula05_Repeticao;
+package Aula05_Repeticao.exemplos;
 
 public class Exemplo2_exemplodeaula {
     public static void main(String[] args) {
