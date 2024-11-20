@@ -2,7 +2,7 @@ package Aula04_EstruturaDecisao.execicios;
 
 import java.util.Scanner;
 
-public class Exercicio_04 {
+public class Ex4_CalculoComissao {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double x;

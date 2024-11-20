@@ -1,6 +1,6 @@
 package Aula07_Funções.exercicios;
 
-public class Exemplo1 {
+public class Ex1_RenomeaarMensagem {
     public static void main(String[] args) {
         mensagemSaudacao();
 

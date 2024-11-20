@@ -2,7 +2,7 @@ package Aula04_EstruturaDecisao.execicios;
 
 import java.util.Scanner;
 
-public class Exercicio_03 {
+public class Ex3_ClassificaoSistema {
     public static void main(String[] args) {
         Scanner scanner =new Scanner(System.in);
         int opcao;

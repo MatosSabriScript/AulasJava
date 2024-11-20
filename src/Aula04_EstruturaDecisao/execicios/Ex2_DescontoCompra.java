@@ -2,7 +2,7 @@ package Aula04_EstruturaDecisao.execicios;
 
 import java.util.Scanner;
 
-public class Exercicio_02 {
+public class Ex2_DescontoCompra {
     public static void main(String[] args) {
         Scanner scanner= new Scanner (System.in);
         double compra;

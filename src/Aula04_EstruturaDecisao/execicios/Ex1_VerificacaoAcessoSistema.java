@@ -2,7 +2,7 @@ package Aula04_EstruturaDecisao.execicios;
 
 import java.util.Scanner;
 
-public class Exercico_01 {
+public class Ex1_VerificacaoAcessoSistema {
     public static void main(String[] args) {
         Scanner scanner= new Scanner (System.in);
         int idade;

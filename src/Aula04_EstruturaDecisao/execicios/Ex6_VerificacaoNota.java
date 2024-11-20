@@ -2,7 +2,7 @@ package Aula04_EstruturaDecisao.execicios;
 
 import java.util.Scanner;
 
-public class Exercicio_06 {
+public class Ex6_VerificacaoNota {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double notaFinal;
