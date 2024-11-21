@@ -28,5 +28,5 @@ public class Exercicio_02_BuscaDeCaractere {
             }
         }
         System.out.println(verificacao+" caractere digitado "+digitar);
-    }
+    } //
 }
