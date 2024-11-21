@@ -18,9 +18,15 @@ public class Exercicio_02_BuscaDeCaractere {
         System.out.println("digite uma letra em maisuculo ");
         String digitar = scanner.next();
 
+        String verificacao= "Não foi encontrado";
 
-        scanner.close();
-        {
+
+
+        for (int i = 0; i < caractere.length; i++) {
+            if (digitar.equals(caractere[i])){
+                verificacao= "O caractere foi encontrado";
+            }
         }
+        System.out.println(verificacao+" caractere digitado "+digitar);
     }
 }
