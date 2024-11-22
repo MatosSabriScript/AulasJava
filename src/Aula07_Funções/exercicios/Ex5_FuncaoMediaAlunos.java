@@ -13,7 +13,7 @@ public class Ex5_FuncaoMediaAlunos {
         double numero3= scanner.nextDouble();
 
         double media= calcularMedia (numero1,numero2,numero3);
-        System.out.println("O valor é "+media);
+        System.out.println("O valor da sua média é:  "+media);
         scanner.close();
 
     }
