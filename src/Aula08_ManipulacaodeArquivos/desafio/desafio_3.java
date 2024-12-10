@@ -1,16 +1,19 @@
-package Aula07_Funções.desafio;
+package Aula08_ManipulacaodeArquivos.desafio;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class desafio_2 {
+public class desafio_3 {
     static Scanner scanner = new Scanner(System.in); //essa variavel todos veem
     static String[] cabecalho = {"id", "Nome", "Telefone", "Email"};
     static String[][] matrizCadastro = {{"", ""}};
 
     public static void main(String[] args) {
         matrizCadastro[0] = cabecalho;
-
 
 
         String menu = """
@@ -72,43 +75,44 @@ public class desafio_2 {
         System.out.println("Quantos alunos você deseja cadastrar: ");
         int qtdPessoas = scanner.nextInt();
         scanner.nextLine();
-        String [][] novaMatriz=new String[matrizCadastro.length+qtdPessoas][cabecalho.length];
+        String[][] novaMatriz = new String[matrizCadastro.length + qtdPessoas][cabecalho.length];
 
-        for (int linha = 0; linha < matrizCadastro.length ; linha++) {
+        for (int linha = 0; linha < matrizCadastro.length; linha++) {
             novaMatriz[linha] = Arrays.copyOf(matrizCadastro[linha], matrizCadastro[linha].length);
         }
 
 
-            System.out.println("Preencha as informações a seguir");
-            System.out.println("--------------------------------");
+        System.out.println("Preencha as informações a seguir");
+        System.out.println("--------------------------------");
 
-            for (int linhas = matrizCadastro.length; linhas < novaMatriz.length; linhas++) {
-                System.out.println(cabecalho[0] + linhas);
-                novaMatriz[linhas][0] = String.valueOf(linhas);
+        for (int linhas = matrizCadastro.length; linhas < novaMatriz.length; linhas++) {
+            System.out.println(cabecalho[0] + linhas);
+            novaMatriz[linhas][0] = String.valueOf(linhas);
 
-                for (int coluna = 1; coluna < cabecalho.length; coluna++) {
-                    System.out.println(cabecalho[coluna] + ":-");
-                    novaMatriz[linhas][coluna] = scanner.nextLine();
-
-                }
+            for (int coluna = 1; coluna < cabecalho.length; coluna++) {
+                System.out.println(cabecalho[coluna] + ":-");
+                novaMatriz[linhas][coluna] = scanner.nextLine();
 
             }
-            matrizCadastro=novaMatriz;
+
         }
+        matrizCadastro = novaMatriz;
+        salvarDadosNoArquivo();
+    }
 
 
     public static void atualizarUsuario() {
         exibirUsuario();
 
         System.out.println("\nDigite o id do usuario que deseja atualizar: ");
-        int idEscolhido=scanner.nextInt();
+        int idEscolhido = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println(cabecalho[0] + idEscolhido);
         for (int coluna = 1; coluna < cabecalho.length; coluna++) {
             System.out.println(cabecalho[coluna] + ":-");
             matrizCadastro[idEscolhido][coluna] = scanner.nextLine();
-
+            salvarDadosNoArquivo();
         }
 
     }
@@ -117,25 +121,34 @@ public class desafio_2 {
         exibirUsuario();
 
         System.out.println("\nDigite o id do usuario que deseja deletar o registro:");
-        int idEscolhido=scanner.nextInt();
+        int idEscolhido = scanner.nextInt();
         scanner.nextLine();
 
-        String [][] novaMatriz=new String[matrizCadastro.length-1][cabecalho.length];
-        novaMatriz[0]=cabecalho;
-        for (int linha=1,idNovaMatriz=1; linha < matrizCadastro.length ; linha++) {
-            if (linha==idEscolhido){
-             continue;
-         }
+        String[][] novaMatriz = new String[matrizCadastro.length - 1][cabecalho.length];
+        novaMatriz[0] = cabecalho;
+        for (int linha = 1, idNovaMatriz = 1; linha < matrizCadastro.length; linha++) {
+            if (linha == idEscolhido) {
+                continue;
+            }
             novaMatriz[linha] = Arrays.copyOf(matrizCadastro[linha], matrizCadastro[linha].length);
-            novaMatriz[idNovaMatriz] [0]=String.valueOf(idNovaMatriz);
+            novaMatriz[idNovaMatriz][0] = String.valueOf(idNovaMatriz);
             idNovaMatriz++;
         }
-        matrizCadastro=novaMatriz;
+        matrizCadastro = novaMatriz;
         exibirUsuario();
         System.out.println("deletado com sucesso");
+        salvarDadosNoArquivo();
 
+    }
 
-
-
+    public static void salvarDadosNoArquivo() {
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(""));
+            for (String[] linha : matrizCadastro) {
+                bufferedWriter.write(String.join(",", linha) + "\n");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
     }
 }
