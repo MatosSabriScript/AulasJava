@@ -1,9 +1,6 @@
 package Aula08_ManipulacaodeArquivos.desafio;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -12,7 +9,10 @@ public class desafio_3 {
     static String[] cabecalho = {"id", "Nome", "Telefone", "Email"};
     static String[][] matrizCadastro = {{"", ""}};
 
+    static File arquivoBancoDeDados= new File(System.getProperty("user.home"),"bancoDeDados.txt");
+
     public static void main(String[] args) {
+        carregarDadosDoArquivo();
         matrizCadastro[0] = cabecalho;
 
 
@@ -141,14 +141,50 @@ public class desafio_3 {
 
     }
 
-    public static void salvarDadosNoArquivo() {
-        try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(""));
-            for (String[] linha : matrizCadastro) {
-                bufferedWriter.write(String.join(",", linha) + "\n");
+
+    public static void salvarDadosNoArquivo(){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(arquivoBancoDeDados))){
+            for (String[]linha: matrizCadastro){
+                bufferedWriter.write( String.join(",",linha)+"\n");
             }
-        } catch (Exception e) {
+        } catch (Exception e){
             throw new RuntimeException();
+
+        }
+
+    }
+    public static void carregarDadosDoArquivo(){
+        String linha;
+        StringBuilder conteudoDoArquivo=new StringBuilder();
+
+        if (!arquivoBancoDeDados.exists()){
+            try {
+               if (arquivoBancoDeDados.createNewFile()){
+                   System.out.println("Arquivo criado"+arquivoBancoDeDados.getName()+"com sucesso");
+               }
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(arquivoBancoDeDados))){
+
+            while ((linha= bufferedReader.readLine())!=null){
+                conteudoDoArquivo.append(linha).append("\n");
+            }
+            String[] linhaDadosUsuarios= conteudoDoArquivo.toString().split("\n");
+
+            matrizCadastro= new String[linhaDadosUsuarios.length][cabecalho.length];
+
+            for (int i = 0; i < linhaDadosUsuarios.length; i++) {
+                matrizCadastro[i]=linhaDadosUsuarios [i].split(",");
+
+            }
+
+        }catch (Exception e){
+            throw new RuntimeException();
+
         }
     }
 }
