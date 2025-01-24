@@ -10,7 +10,7 @@ public class Exercio_07 {
             boolean resultadoAND = cond1 && cond2 && cond3; // AND (E)
             boolean resultadoOR = cond1 || cond2 || cond3;  // OR (OU)
 
-            // Exibindo os resultados no console.
+            // Exibindo os resultados no console
             System.out.println("Resultado do operador AND (&&): " + resultadoAND);
             System.out.println("Resultado do operador OR (||): " + resultadoOR);
         }
